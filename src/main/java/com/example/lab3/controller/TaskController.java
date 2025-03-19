@@ -34,7 +34,7 @@ public class TaskController {
 
     @PutMapping("/{taskId}")
     public ResponseEntity<TaskDTO> updateTask(@PathVariable Long projectId, @PathVariable Long taskId, @RequestBody TaskDTO taskDTO) {
-        return taskService.update(projectId, taskDTO).map(ResponseEntity::ok).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        return taskService.update(taskId, taskDTO).map(ResponseEntity::ok).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @DeleteMapping("/{taskId}")
